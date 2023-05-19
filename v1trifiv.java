@@ -31,11 +31,11 @@ public class v1trifiv {
         if(mul3==0){
             System.out.println("tri");
         }
-                if(mul5==0){
+        if(mul5==0){
             System.out.println("fiv");
         }
         int mul = 0;
-                        if(mul3 % 3 == 0 && mul % 5 == 0){
+        if(mul3 % 3 == 0 && mul % 5 == 0){
             System.out.println("trifiv");
         }
     }

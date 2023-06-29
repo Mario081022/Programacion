@@ -1,71 +1,158 @@
 package pkg2.pkg3menu;
-import caseswitch.CaseSwitch;
 import java.util.Scanner;
-import javaapplication4.JavaApplication4;
-import switchcajero.SwitchCajero;
-public class Main {
-//VARIABLES PARA EL SELECTOR DE PROGRAMAS
-    public static Scanner entrada = new Scanner(System.in);
-    public static int Op;
+
+public class ProgramSelector {
     public static void main(String[] args) {
-        //Ejecucion del menu
-Menu();
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Seleccione un programa:");
+        System.out.println("1. Programa de calificaciones");
+        System.out.println("2. Programa de cajero automático");
+        System.out.println("3. Programa de descuento");
+        System.out.print("Ingrese el número de programa que desea ejecutar: ");
+        int programa = scanner.nextInt();
+        
+        switch (programa) {
+            case 1:
+                ejecutarProgramaCalificaciones();
+                break;
+            case 2:
+                ejecutarProgramaCajeroAutomatico();
+                break;
+            case 3:
+                ejecutarProgramaDescuento();
+                break;
+            default:
+                System.out.println("Opción inválida. El programa seleccionado no existe.");
+                break;
+        }
     }
-    //Ejecucion de los programas externos
-public static void Pro1 (){
-CaseSwitch obj = new CaseSwitch ();    
-    obj.Compra();
-    obj.ProcesoCase();
-}   
-public static void Pro2 (){
-JavaApplication4 obj2 = new JavaApplication4();    
-    obj2.Calificaciones();
     
-   
-}   
-public static void Pro3(){
-SwitchCajero obj3 = new SwitchCajero();    
-obj3.Bucle();
+    public static void ejecutarProgramaCalificaciones() {
+        import java.util.Scanner;
 
+public class Calificaciones {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingresa la calificación: ");
+        int calificacion = scanner.nextInt();
+        
+        String mensaje;
+        
+        switch (calificacion) {
+            case 0:
+            case 1:
+                mensaje = "Muy mal";
+                break;
+            case 2:
+                mensaje = "Insuficiente";
+                break;
+            case 3:
+                mensaje = "Suficiente";
+                break;
+            case 4:
+                mensaje = "Bien";
+                break;
+            case 5:
+                mensaje = "Notable";
+                break;
+            case 6:
+                mensaje = "Sobresaliente";
+                break;
+            default:
+                mensaje = "Error de calificación";
+                break;
+        }
+        
+        System.out.println("Resultado: " + mensaje);
+    }
 }
-////Menu para ejecutar programas///////////////////
-public static void Menu()
-{
-//Variable Bucle C
-    int c=1;
-//MENU   
-while(c==1){
-  System.out.println("¿Que Programa deseas usar?");   
-    System.out.println(" Para el Descuento coloca 1"); 
-        System.out.println(" Para el Calificador coloca 2");
-              System.out.println(" Para el Banco coloca 3");
-                System.out.println(" Para salir colocar 4");
- 
-Op=entrada.nextInt();
-//Proceso de OP
+        System.out.println("Ejecutando programa de calificaciones...");
+    }
+    
+    public static void ejecutarProgramaCajeroAutomatico() {
+        import java.util.Scanner;
 
-switch (Op){
-    case 1:
-{
-    Pro1();
-    break;
+public class CajeroAutomatico {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double saldo = 15,000.0;
+        
+        System.out.println("Bienvenido al Cajero Automático");
+        
+        while (true) {
+            System.out.println("--------------------------------");
+            System.out.println("Opciones disponibles:");
+            System.out.println("1. Consultar saldo");
+            System.out.println("2. Realizar retiro");
+            System.out.println("3. Salir");
+            System.out.print("Ingresa el número de opción: ");
+            int opcion = scanner.nextInt();
+            
+            switch (opcion) {
+                case 1:
+                    System.out.println("Saldo actual: $" + saldo);
+                    break;
+                case 2:
+                    System.out.print("Ingrese la cantidad a retirar: $");
+                    double cantidadRetiro = scanner.nextDouble();
+                    
+                    if (cantidadRetiro > saldo) {
+                        System.out.println("Fondos insuficientes. No se puede realizar el retiro.");
+                    } else {
+                        saldo -= cantidadRetiro;
+                        System.out.println("Retiro exitoso. Nuevo saldo: $" + saldo);
+                    }
+                    
+                    break;
+                case 3:
+                    System.out.println("Gracias por utilizar el Cajero Automático. ¡Hasta pronto!");
+                    return;
+                default:
+                    System.out.println("Opción inválida. Por favor, ingresa un número válido.");
+                    break;
+            }
+        }
+    }
 }
-    case 2:
-{
-    Pro2();
-     break;
+        System.out.println("Ejecutando programa de cajero automático...");
+    }
+    
+    public static void ejecutarProgramaDescuento() {
+        import java.util.Scanner;
+
+public class AplicarDescuento {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese el código: ");
+        String codigo = scanner.nextLine();
+
+        System.out.print("Ingrese el precio del artículo: $");
+        double precio = scanner.nextDouble();
+
+        double precioConDescuento = 0.0;
+
+        switch (codigo) {
+            case "DESC10":
+                precioConDescuento = precio * 0.9;
+                break;
+            case "DESC20":
+                precioConDescuento = precio * 0.8;
+                break;
+            case "DESC30":
+                precioConDescuento = precio * 0.7;
+                break;
+            default:
+                System.out.println("Código inválido. No se aplica descuento.");
+                return;
+        }
+
+        System.out.println("Precio original: $" + precio);
+        System.out.println("Precio con descuento: $" + precioConDescuento);
+    }
 }
-    case 3:
-{
-    Pro3();
-     break;
-}
-    case 4:
-{
-  c++;
-        System.out.println(" Vuelva pronto");
-         break;
-}
+        System.out.println("Ejecutando programa de descuento...");
+    }
 }}    
 
     
